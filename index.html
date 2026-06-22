@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SBI AI Financial Companion</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="icon" href="images/hero-bg.jpg">
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+<i class="fa-solid fa-building-columns"></i>
+SBI AI Financial Companion
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#register">Register</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#assistant">AI Assistant</a>
+<a href="#loan">Loan Agent</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+<h1>Future of Smart Banking</h1>
+
+<p>
+AI Powered Banking Assistant for Digital Adoption,
+Fraud Prevention and Financial Growth
+</p>
+
+<button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">
+Get Started
+</button>
+
+</section>
+
+<!-- FEATURES -->
+
+<section id="features" class="features">
+
+<h2>Key Features</h2>
+
+<div class="feature-grid">
+
+<div class="card">
+<i class="fa-solid fa-robot"></i>
+<h3>AI Banking Assistant</h3>
+<p>Instant banking support</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Fraud Detection</h3>
+<p>Detect suspicious transactions</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-microphone"></i>
+<h3>Voice Banking</h3>
+<p>Speak and interact</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>Financial Coach</h3>
+<p>Personal savings guidance</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-user-shield"></i>
+<h3>Scam Detection</h3>
+<p>Analyze suspicious messages</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-landmark"></i>
+<h3>Loan Eligibility</h3>
+<p>Instant eligibility check</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CUSTOMER REGISTRATION -->
+
+<section id="register" class="customer-profile">
+
+<h2>Create Customer Profile</h2>
+
+<input type="text" id="cname" placeholder="Customer Name">
+
+<input type="text" id="cid" placeholder="Customer ID">
+
+<input type="text" id="acc" placeholder="Account Number">
+
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<input type="email" id="email" placeholder="Email Address">
+
+<button onclick="createProfile()">
+Create Profile
+</button>
+
+<div id="customerData"></div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="dashboard">
+
+<h2>Customer Dashboard</h2>
+
+<div class="cards">
+
+<div class="dash-card">
+<h3>Account Balance</h3>
+<p>₹50,000</p>
+</div>
+
+<div class="dash-card">
+<h3>Monthly Savings</h3>
+<p>₹12,500</p>
+</div>
+
+<div class="dash-card">
+<h3>Financial Health</h3>
+<p id="healthScore">82/100</p>
+</div>
+
+<div class="dash-card">
+<h3>Reward Points</h3>
+<p>1250</p>
+</div>
+
+</div>
+
+<h3>Recent Transactions</h3>
+
+<table class="transaction-table">
+
+<tr>
+<th>Date</th>
+<th>Description</th>
+<th>Amount</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>21-06-2026</td>
+<td>UPI Payment</td>
+<td>₹500</td>
+<td>Success</td>
+</tr>
+
+<tr>
+<td>20-06-2026</td>
+<td>Mobile Recharge</td>
+<td>₹299</td>
+<td>Success</td>
+</tr>
+
+<tr>
+<td>18-06-2026</td>
+<td>Salary Credit</td>
+<td>₹25,000</td>
+<td>Success</td>
+</tr>
+
+<tr>
+<td>15-06-2026</td>
+<td>Electricity Bill</td>
+<td>₹1,200</td>
+<td>Success</td>
+</tr>
+
+</table>
+
+<br>
+
+<canvas id="financeChart"></canvas>
+
+</section>
+
+<!-- FRAUD DETECTION -->
+
+<section class="fraud-section">
+
+<h2>Fraud Detection Engine</h2>
+
+<button onclick="checkFraud()">
+Analyze Transaction
+</button>
+
+<h3 id="fraudResult"></h3>
+
+</section>
+
+<!-- SCAM DETECTION -->
+
+<section class="scam-detector">
+
+<h2>Scam Detection Agent</h2>
+
+<textarea
+id="scamText"
+placeholder="Paste suspicious SMS or Email">
+</textarea>
+
+<br>
+
+<button onclick="detectScam()">
+Analyze Message
+</button>
+
+<h3 id="scamResult"></h3>
+
+</section>
+
+<!-- AI ASSISTANT -->
+
+<section id="assistant" class="assistant">
+
+<h2>AI Banking Assistant</h2>
+
+<input
+type="text"
+id="userInput"
+placeholder="Ask banking questions">
+
+<br>
+
+<button onclick="chatBot()">Send</button>
+
+<button onclick="startVoice()">🎤 Voice</button>
+
+<div id="response"></div>
+
+</section>
+
+<!-- FINANCIAL COACH -->
+
+<section class="finance-coach">
+
+<h2>Financial Coach</h2>
+
+<input
+type="number"
+id="salary"
+placeholder="Monthly Salary">
+
+<input
+type="number"
+id="expense"
+placeholder="Monthly Expense">
+
+<button onclick="calculateSavings()">
+Calculate Savings
+</button>
+
+<h3 id="savingResult"></h3>
+
+</section>
+
+<!-- LOAN ELIGIBILITY -->
+
+<section id="loan" class="loan-agent">
+
+<h2>Loan Eligibility Agent</h2>
+
+<input
+type="number"
+id="income"
+placeholder="Monthly Income">
+
+<input
+type="number"
+id="age"
+placeholder="Age">
+
+<button onclick="checkLoan()">
+Check Eligibility
+</button>
+
+<h3 id="loanResult"></h3>
+
+</section>
+
+<!-- EMERGENCY BANKING -->
+
+<section class="emergency">
+
+<h2>Emergency Banking</h2>
+
+<button>Freeze Card</button>
+
+<button>Block UPI</button>
+
+<button>Report Fraud</button>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<h3>SBI AI Financial Companion</h3>
+
+<p>
+Agentic AI & Emerging Tech Hackathon Project
+</p>
+
+<p>
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
